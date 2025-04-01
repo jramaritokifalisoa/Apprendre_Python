@@ -1,8 +1,9 @@
 Note  = int(input("Entrer la note de l'etudiant :  "))
 
 
-
-if Note > 0 and Note < 3 :
+if Note <= 0 :
+    print("Sans commentaire") 
+elif Note > 0 and Note < 3 :
     print("Sans commentaire !!!")
 elif Note > 3 and Note <= 6 :
     print("Tu n'as rien compris !!! ")
