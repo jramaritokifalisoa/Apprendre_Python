@@ -1,19 +1,25 @@
-def calculatrice() : 
-    operateur = input("Choisissez un operateur ( + , - , * , / , %)")
-    nombre1 = float(input("Entrer nombre1 : "))
-    nombre2 = float(input("Entrer nombre2 : "))
-    
-    if operateur == '+' : 
-        print(f"Resultat : {nombre1 + nombre2}")
-    elif operateur == '-' : 
-        print(f"Resultat : {nombre1 - nombre2}")
-    elif operateur == '*' :
-        print(f"Resultat : {nombre1 * nombre2}")
-    elif operateur == '%' : 
-        print(f"Resultat:  {nombre1 % nombre2}")
-    elif operateur == '/' :
-        if nombre2 != 0 :
-         print(f"Resultat : {nombre1 / nombre2} ")
-        else:
-         print(f"tsy possible ....")
-calculatrice()
+Operateur  = input("Choisissez entre ces operateurs : ( + , - , * , / , %) : ")
+Nombre1 = int(input("Entrer le premier nombre :"))
+Nombre2 = int(input("Entrer le second nombre :"))
+def multiplication( x , y) :
+     return x * y 
+def addition( x , y) :
+    return x + y 
+def division( x , y) :
+    return x / y
+def modulo( x , y) :
+    return x % y
+def moin( x , y) :
+    return x - y   
+if Operateur == "+" : 
+        print(addition(Nombre1,Nombre2))
+elif Operateur == "*" : 
+        print(multiplication(Nombre1,Nombre2))
+elif Operateur == "/" : 
+        print(division(Nombre1,Nombre2))
+elif Operateur == "%" : 
+        print(modulo(Nombre1,Nombre2))
+elif Operateur == "-" : 
+        print(moin(Nombre1,Nombre2))
+else : 
+    print("Désolé, vous devez choisir entre ces operateurs")
