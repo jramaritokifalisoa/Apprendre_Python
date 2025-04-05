@@ -35,8 +35,9 @@ while True :
           if len(Mot_de_passe) and len(Confirmation) < 4 :
               print("Désolé ,  le mot de passe doit être superieur à 4 , Vous devez recommencer")
               personne["E-mail"].remove(Email)
-      else :        
+      else :     
        print(f"felicitaion, {personne['E-mail']} a bien été ajouter ")
+    
     if choix == "2" :
       Personne_a_supprimer = input("Entrer seulement l'email de la personne à supprimer : ")
       
@@ -44,16 +45,20 @@ while True :
       if not personne["Mot_de_passe"] : 
           print("Erreur !! ")
       else :
-       if Mot_de_pass == personne["Mot_de_passe"] == personne["Confirmation"] :
-          personne["Mot_de_passe"].remove(Mot_de_pass)
-          print("OK")
-      if not personne["E-mail"] : 
-          print("Erreur")
-      if Personne_a_supprimer in personne["E-mail"] :
-          personne['E-mail'].remove(Personne_a_supprimer)
-          print (f"L'email {Personne_a_supprimer} n'est plus dans la liste")
-      else : 
-          print("Désoler ,  l'email n'existe pas !! ")
+       if Mot_de_pass in personne["Mot_de_passe"] and personne["Confirmation"]:
+             personne["Mot_de_passe"].remove(Mot_de_pass)
+             personne["Confirmation"].remove(Mot_de_pass)
+             print("OK")
+             if not personne["E-mail"] : 
+               print("Erreur")
+             else :
+              if Personne_a_supprimer in personne["E-mail"] :
+                personne['E-mail'].remove(Personne_a_supprimer)
+                print (f"L'email {Personne_a_supprimer} n'est plus dans la liste")
+              else : 
+               print("Désoler ,  l'email n'existe pas !! ")
+       else :
+            print("Le mot de passe que vous avez entrer n'est pas identique !! ")
     if choix == "3" : 
         if not personne["E-mail"]: 
             print("Désoler ,  il y a personne dans la liste !!")
@@ -63,12 +68,16 @@ while True :
         if not personne["E-mail"] : 
             print("Désoler ,  il y a personne dans la liste !!")
         else : 
-            personne["E-mail"].clear()
-            personne["Mot_de_passe"].clear()
-            personne["Confirmation"].clear()
-            print("felicitation ,  la liste est de nouveau vide !!")
+            Confirmation_vidage = str(input("Voulez vous vraiment vider la liste ( Oui ou Non ):")).strip().lower()
+            if Confirmation_vidage == 'Oui':            
+               personne["E-mail"].clear()
+               personne["Mot_de_passe"].clear()
+               personne["Confirmation"].clear()
+               print("felicitation ,  la liste est de nouveau vide !!")
+            else :
+                print("Vidage annuler !! ")
     if choix == "5" : 
            print("Au revoir !!!")
            sys.exit()
     else : 
-        print("Il faut xhoisir entre ces options !! ")
+        print("Il faut choisir entre ces options !! ")
