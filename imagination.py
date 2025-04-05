@@ -1,3 +1,6 @@
+import sys
+
+
 option = {
     "1" : "Ajouter un individu dans la liste",
     "2" : "Supprimer une personne dans la liste",
@@ -28,8 +31,10 @@ while True :
       personne['Confirmation'].append(Confirmation)
       if Mot_de_passe != Confirmation : 
           print("Désolé , votre mot de n'est pas identique ! , Vous devez recommencer ")
+          personne["E-mail"].remove(Email)
           if len(Mot_de_passe) and len(Confirmation) < 4 :
               print("Désolé ,  le mot de passe doit être superieur à 4 , Vous devez recommencer")
+              personne["E-mail"].remove(Email)
       else :        
        print(f"felicitaion, {personne['E-mail']} a bien été ajouter ")
     if choix == "2" :
@@ -39,10 +44,9 @@ while True :
       if not personne["Mot_de_passe"] : 
           print("Erreur !! ")
       else :
-       if Mot_de_pass == personne["Mot_de_passe"] and personne["Confirmation"] :
+       if Mot_de_pass == personne["Mot_de_passe"] == personne["Confirmation"] :
           personne["Mot_de_passe"].remove(Mot_de_pass)
-       else : 
-          print("Désoler , l'action ne peut être fait , le mot de passe est incorrecte !")
+          print("OK")
       if not personne["E-mail"] : 
           print("Erreur")
       if Personne_a_supprimer in personne["E-mail"] :
@@ -50,6 +54,21 @@ while True :
           print (f"L'email {Personne_a_supprimer} n'est plus dans la liste")
       else : 
           print("Désoler ,  l'email n'existe pas !! ")
-          
-
-        
+    if choix == "3" : 
+        if not personne["E-mail"]: 
+            print("Désoler ,  il y a personne dans la liste !!")
+        else : 
+            print (f"La liste ici presente  : {personne['E-mail']}")
+    if choix == "4" :
+        if not personne["E-mail"] : 
+            print("Désoler ,  il y a personne dans la liste !!")
+        else : 
+            personne["E-mail"].clear()
+            personne["Mot_de_passe"].clear()
+            personne["Confirmation"].clear()
+            print("felicitation ,  la liste est de nouveau vide !!")
+    if choix == "5" : 
+           print("Au revoir !!!")
+           sys.exit()
+    else : 
+        print("Il faut xhoisir entre ces options !! ")
