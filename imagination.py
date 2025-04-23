@@ -69,7 +69,7 @@ while True :
             print("Désoler ,  il y a personne dans la liste !!")
         else : 
             Confirmation_vidage = str(input("Voulez vous vraiment vider la liste ( Oui ou Non ):")).strip().lower()
-            if Confirmation_vidage == 'Oui':            
+            if Confirmation_vidage == 'Oui':             
                personne["E-mail"].clear()
                personne["Mot_de_passe"].clear()
                personne["Confirmation"].clear()
